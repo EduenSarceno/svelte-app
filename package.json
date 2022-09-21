@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
     "autoprefixer": "^10.4.11",
     "daisyui": "^2.28.0",
