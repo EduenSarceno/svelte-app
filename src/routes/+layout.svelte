@@ -8,7 +8,7 @@ import '../app.css';
   <a class="btn btn-ghost text-xl">Your logo</a>
 </div>
 <div class="flex-none">
-  <a class="btn btn-ghost text-xl">Menu</a>
+  <a class="btn btn-ghost text-xl"><span class="fa-solid fa-bars"></span></a>
 </div>
 </header>
 <div class="flex-1 flex flex-col">
