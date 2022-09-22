@@ -6,7 +6,10 @@ const siteTheme = require('./site.theme.cjs')
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui']
+    }
   },
   plugins: [ daisyUI ],
   daisyui: {

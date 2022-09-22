@@ -9,5 +9,11 @@ export default {
         {slug: 'contact-us', name: 'contact'}
       ]
     }
+  },
+  article: {
+    body: { maxLength: 300 },
+    author: {
+      colors: ['#000', '#8D2020', '#47095C', '#09595C']
+    }
   }
 };
