@@ -5,7 +5,10 @@ import preprocess from 'svelte-preprocess';
 const config = {
   kit: {
     adapter: adapter(),
-    trailingSlash: 'never'
+    trailingSlash: 'never',
+    paths: {
+      base: '/svelte-app'
+    }
   },
   preprocess: [
     preprocess({ postcss: true })

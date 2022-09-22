@@ -1,9 +1,12 @@
+<script>
+import { base } from '$app/paths';
+</script>
 <div class="hero min-h-screen">
   <div class="hero-content text-center">
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">SvelteKit.js + Vite.js</h1>
       <p class="py-6">Este sitio está hecho completamente a través de svelte</p>
-      <a href="/posts" class="btn btn-primary">Probar ahora</a>
+      <a href="{base}/posts" class="btn btn-primary">Probar ahora</a>
     </div>
   </div>
 </div>
