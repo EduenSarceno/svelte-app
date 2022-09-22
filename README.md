@@ -10,6 +10,14 @@ de 72horas es una mala idea.
 Bue, sin más que agregar, mas que aprendí mucho y me divertí. Espero les sirva
 a alguien más.
 
+Visualización del sitio en línea
+==================================
+Debido a que utilicé el adaptador estático de SvelteKit es posible visualizar el sitio
+incluso sin un servidor.
+
+  https://eduensarceno.github.io/svelte-app/
+
+
 Ejecución de la aplicación
 =============
 

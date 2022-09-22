@@ -2,7 +2,7 @@
   "name": "@pentcloud/vacante-frontend",
   "description": "Aplicación para la vacante de frontend",
   "author": "Eduen Sarceño <s.aeduen@gmail.com>",
-  "version": "0.0.1-dev",
+  "version": "0.0.1",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
