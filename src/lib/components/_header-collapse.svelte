@@ -1,0 +1,14 @@
+<script>
+import Navbar from './_header-navbar.svelte';
+</script>
+
+<div>
+  <div class="dropdown dropdown-end block text-end">
+    <label tabindex="0" class="btn btn-square btn-outline">
+      <span class="fa-solid fa-bars"></span>
+    </label>
+    <div tabindex="0" class="dropdown-content">
+      <Navbar />
+    </div>
+  </div>
+</div>

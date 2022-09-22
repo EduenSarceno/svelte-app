@@ -1,8 +1,9 @@
-<div class="hero flex-1">
-<div class="hero-content text-center">
-  <div class="max-w-md">
-  <h1 class="text-6xl font-bold">Welcome to SvelteKit</h1>
-  <p class="py-6">Visit <a href="https://kit.svelte.dev" class="btn btn-sm btn-primary">kit.svelte.dev</a> to read the documentation</p>
+<div class="hero min-h-screen">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">SvelteKit.js + Vite.js</h1>
+      <p class="py-6">Este sitio está hecho completamente a través de svelte</p>
+      <a href="/posts" class="btn btn-primary">Probar ahora</a>
+    </div>
   </div>
-</div>
 </div>
