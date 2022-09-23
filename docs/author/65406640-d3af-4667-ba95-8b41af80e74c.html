@@ -16,7 +16,9 @@
 	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/chunks/stores-0df3f9f2.js">
 	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/modules/pages/_layout.js-7b9cbfbc.js">
 	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/chunks/_layout-8d2a742b.js">
-	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/components/pages/contact-us/_page.svelte-4c6680a9.js">
+	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/components/pages/author/_id_uuid_/_page.svelte-d367896b.js">
+	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/modules/pages/author/_id_uuid_/_page.js-041914e0.js">
+	<link rel="modulepreload" href="https://eduensarceno.github.io/svelte-app/_app/immutable/chunks/_page-3068a856.js">
 </head>
 <body>
   
@@ -24,11 +26,22 @@
 
 <div class="flex flex-col min-h-screen"><div class="bg-primary flex flex-row flex-end flex-wrap justify-between p-6 items-center"><div class="md:basis-3/12"><span class="text-base-content text-xl select-none">EDUEN</span></div>
   <div class="md:grow md:basis-auto"><div><div class="dropdown dropdown-end block text-end"><label tabindex="0" class="btn btn-square btn-outline"><span class="fa-solid fa-bars"></span></label>
-    <div tabindex="0" class="dropdown-content"><ul tabindex="0" class="menu basis-full shadow bg-neutral rounded-box p-2 w-52"><li><a href="/svelte-app/" class="uppercase">home</a></li><li><a href="/svelte-app/about-us" class="uppercase">about</a></li><li><a href="/svelte-app/posts" class="uppercase">blog</a></li><li><a href="/svelte-app/contact-us" class="uppercase active">contact</a></li></ul></div></div></div></div></div>
-<section class="flex flex-wrap justify-center flex-grow overflow-y"></section></div>
+    <div tabindex="0" class="dropdown-content"><ul tabindex="0" class="menu basis-full shadow bg-neutral rounded-box p-2 w-52"><li><a href="/svelte-app/" class="uppercase">home</a></li><li><a href="/svelte-app/about-us" class="uppercase">about</a></li><li><a href="/svelte-app/posts" class="uppercase">blog</a></li><li><a href="/svelte-app/contact-us" class="uppercase">contact</a></li></ul></div></div></div></div></div>
+<section class="flex flex-wrap justify-center flex-grow overflow-y"><article class="hero"><pre>{
+  "id": {
+    "url": "http://sveltekit-prerender/svelte-app/author/65406640-d3af-4667-ba95-8b41af80e74c",
+    "params": {
+      "id": "65406640-d3af-4667-ba95-8b41af80e74c"
+    },
+    "data": null,
+    "routeId": "author/[id=uuid]"
+  },
+  "name": "Author Name"
+}
+</pre></article></section></div>
 
 
-		<script type="module" data-sveltekit-hydrate="b0msjs">
+		<script type="module" data-sveltekit-hydrate="a1kvlb">
 		import { start } from "https://eduensarceno.github.io/svelte-app/_app/immutable/start-da80f359.js";
 
 		start({
@@ -36,14 +49,14 @@
 			hydrate: {
 				status: 200,
 				error: null,
-				node_ids: [0, 5],
-				params: {},
-				routeId: "contact-us",
+				node_ids: [0, 4],
+				params: {id:"65406640-d3af-4667-ba95-8b41af80e74c"},
+				routeId: "author/[id=uuid]",
 				data: (function(a){return [a,a]}(null)),
 				form: null
 			},
 			paths: {"base":"/svelte-app","assets":"https://eduensarceno.github.io/svelte-app"},
-			target: document.querySelector('[data-sveltekit-hydrate="b0msjs"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="a1kvlb"]').parentNode,
 			trailing_slash: "never"
 		});
 	</script>
