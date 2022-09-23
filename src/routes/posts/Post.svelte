@@ -13,10 +13,10 @@ $: author.color = authorColor(author)
 
 </script>
 
-<article tabinde="0" class="flex flex-row bg-base-200 m-4 basis-full basis-11/12 rounded border border-primary align-middle">
+<article tabinde="0" class="flex flex-row bg-base-300 text-base-content m-4 basis-full basis-11/12 rounded border border-neutral align-middle">
 <div class="grow m-4">
   <div class="avatar flex justify-center sm:float-left">
-    <div class="rounded rounded-full w-[5rem] m-6 text-center select-none border-2 border-primary" style="background-color:{author.color}">
+    <div class="rounded rounded-full w-[5rem] m-6 text-center select-none border-2 border-neutral text-neutral-content" style="background-color:{author.color}">
       <span class="text-3xl leading-[5rem]">{author.name.charAt(0)}</span>
     </div>
     </div>
@@ -24,7 +24,7 @@ $: author.color = authorColor(author)
     <a href="{base}/view/post/?id={id}" class="link link-hover basis-full sm:flex-auto">
     <h1 class="text-xl font-extrabold my-2">{title}</h1>
     </a>
-    <div class="text-base basis-full overflow-y">{body}</div>
+    <div class="basis-full overflow-y">{body}</div>
     <div class="my-2 text-sm basis-full text-center sm:text-left">
       by <a href="{base}/view/author/?id={id}" class="link">
         <em class="font-bold">{author.name}</em>
