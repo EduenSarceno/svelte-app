@@ -20,11 +20,11 @@ $: author.color = authorColor(author)
     </div>
     </div>
   <div class="text-xl font-extrabold my-2">
-    <a href="{base}/post/{id}/" class="link link-hover">{title}</a>
+    <a href="{base}/view/post/?id={id}" class="link link-hover">{title}</a>
   </div>
   <div class="text-base grow">{body}</div>
   <div class="text-right text-sm">
-    by <a href="{base}/author/{author.id}/" class="link">
+    by <a href="{base}/view/author/?id={id}" class="link">
       <em class="font-bold">{author.name}</em>
     </a>
   </div>
