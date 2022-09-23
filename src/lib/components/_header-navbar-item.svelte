@@ -6,20 +6,15 @@ import { base } from '$app/paths';
 export let slug;
 export let name;
 
-let active ;
-const unsubscribe = page.subscribe(value => {
-  const { pathname } = value.url;
-  const href = `${base}/${slug}`
-  active = pathname === href;
-});
-onDestroy(unsubscribe);
+$: href = slug ? `${base}/${slug}/` : `${base}/`;
+$: active = $page.url.pathname === href;
 
 </script>
 
 <li>
 {#if active}
-  <a href="{base}/{slug}" class="uppercase active">{name}</a>
+  <a href="{href}" class="uppercase active">{name}</a>
 {:else}
-  <a href="{base}/{slug}" class="uppercase">{name}</a>
+  <a href="{href}" class="uppercase">{name}</a>
 {/if}
 </li>

@@ -5,7 +5,7 @@ import preprocess from 'svelte-preprocess';
 const config = {
   kit: {
     adapter: adapter(),
-    trailingSlash: 'never',
+    trailingSlash: 'always',
     paths: {
       /**
        * Modificar al subir al servidor
