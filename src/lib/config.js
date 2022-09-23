@@ -9,7 +9,7 @@ export default {
     ]
   },
   posts : {
-    body: { maxLength: 300 },
+    body: { maxLength: 280 },
     author: {
       colors: [
       '#000',

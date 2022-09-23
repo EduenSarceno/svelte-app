@@ -10,6 +10,8 @@ module.exports = {
     'base-content': '#FFF',
     'neutral-content': '#FFF',
     'primary-content': '#FFF',
-    'primary-focus': '#661AE6'
+    'primary-focus': '#661AE6',
+    'secondary': '#661AE6',
+    'secondary-content': '#FFF'
   }
 };

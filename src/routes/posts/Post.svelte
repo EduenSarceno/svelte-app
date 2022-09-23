@@ -6,6 +6,7 @@ export let title;
 export let body;
 export let author;
 export let id;
+export let categories;
 
 $: body = safeBody(body)
 $: author.color = authorColor(author)
@@ -14,19 +15,32 @@ $: author.color = authorColor(author)
 
 <article tabinde="0" class="flex flex-row bg-base-200 m-4 basis-full basis-11/12 rounded border border-primary align-middle">
 <div class="grow m-4">
-  <div class="avatar float-left">
-    <div class="rounded rounded-full w-[5rem] m-6 text-center select-none" style="background-color:{author.color}">
+  <div class="avatar flex justify-center sm:float-left">
+    <div class="rounded rounded-full w-[5rem] m-6 text-center select-none border-2 border-primary" style="background-color:{author.color}">
       <span class="text-3xl leading-[5rem]">{author.name.charAt(0)}</span>
     </div>
     </div>
-  <div class="text-xl font-extrabold my-2">
-    <a href="{base}/view/post/?id={id}" class="link link-hover">{title}</a>
-  </div>
-  <div class="text-base grow">{body}</div>
-  <div class="text-right text-sm">
-    by <a href="{base}/view/author/?id={id}" class="link">
-      <em class="font-bold">{author.name}</em>
+  <div class="flex flex-row flex-wrap sm:flex-row">
+    <a href="{base}/view/post/?id={id}" class="link link-hover basis-full sm:flex-auto">
+    <h1 class="text-xl font-extrabold my-2">{title}</h1>
     </a>
+    <div class="text-base basis-full overflow-y">{body}</div>
+    <div class="my-2 text-sm basis-full text-center sm:text-left">
+      by <a href="{base}/view/author/?id={id}" class="link">
+        <em class="font-bold">{author.name}</em>
+      </a>
+    </div>
+
+  <div class="text-left my-2 text-bg-300 sm:text-right">
+    {#each categories as tag}
+    <btn class="badge badge-lg badge-outline badge-primary gap-2 mr-2">
+      <span class="fa-solid fa-tag"></span>
+      <a  href="{base}/posts/?cat={tag.id}" class="link link-hover text-base-content">{tag.name}</a>
+    </btn>
+    {/each}
+  </div>
+
+
   </div>
 </div>
 </article>
