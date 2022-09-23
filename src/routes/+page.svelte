@@ -1,7 +1,7 @@
 <script>
 import { base } from '$app/paths';
 </script>
-<div class="hero min-h-screen">
+<article class="hero">
   <div class="hero-content text-center">
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">SvelteKit.js + Vite.js</h1>
@@ -9,4 +9,4 @@ import { base } from '$app/paths';
       <a href="{base}/posts" class="btn btn-primary">Probar ahora</a>
     </div>
   </div>
-</div>
+</article>

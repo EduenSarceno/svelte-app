@@ -4,7 +4,7 @@ import Header from '$lib/components/header.svelte';
 </script>
 <div class="flex flex-col min-h-screen">
   <Header/>
-<div class="flex-grow overflow-y">
+<section class="flex flex-wrap justify-center flex-grow overflow-y">
   <slot />
-</div>
+</section>
 </div>
