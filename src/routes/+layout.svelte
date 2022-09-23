@@ -1,6 +1,6 @@
 <script>
 import '../app.css';
-import Header from '$lib/components/header.svelte';
+import Header from './Header.svelte';
 </script>
 <div class="flex flex-col min-h-screen">
   <Header/>

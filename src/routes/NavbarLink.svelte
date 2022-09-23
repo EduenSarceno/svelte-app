@@ -1,5 +1,4 @@
 <script>
-import { onDestroy, onMount } from 'svelte';
 import { page } from '$app/stores';
 import { base } from '$app/paths';
 

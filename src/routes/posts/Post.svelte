@@ -1,5 +1,5 @@
 <script>
-import { safeBody, authorColor } from './posts.functions.js'
+import { safeBody, authorColor } from './functions.js'
 import { base } from '$app/paths';
 
 export let title;

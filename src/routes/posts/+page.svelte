@@ -1,5 +1,5 @@
 <script>
-import Post from '$lib/components/post.svelte';
+import Post from './Post.svelte';
 export let data;
 
 let posts = data && data.data && data.data.posts.rows || [];

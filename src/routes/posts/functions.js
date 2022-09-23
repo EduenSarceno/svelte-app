@@ -1,6 +1,7 @@
-import config from '$lib/config/all.js';
-const { maxLength } = config.article.body;
-const { colors } = config.article.author
+import config from '$lib/config.js';
+
+const { maxLength } = config.posts.body;
+const { colors } = config.posts.author;
 
 export function safeBody(body) {
   if (body.length > maxLength) {
