@@ -1,0 +1,1 @@
+import{m as t,e as r}from"./index-a26b1060.js";const a=!1;function s({url:o}){const e=o.searchParams.get("id");if(!t(e))throw r(404,"not a post");return{id:e}}const c=Object.freeze(Object.defineProperty({__proto__:null,ssr:a,load:s},Symbol.toStringTag,{value:"Module"}));export{c as _,s as l,a as s};
