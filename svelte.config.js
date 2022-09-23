@@ -7,8 +7,13 @@ const config = {
     adapter: adapter(),
     trailingSlash: 'never',
     paths: {
-      base: '/svelte-app',
-      assets: 'https://eduensarceno.github.io/svelte-app'
+      /**
+       * Modificar al subir al servidor
+       * Ej: {
+       *  base '/svelte-app',
+       *  assets: 'https://eduensarceno.github.io/svelte-app'
+       * }
+       */
     }
   },
   preprocess: [
