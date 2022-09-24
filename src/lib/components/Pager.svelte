@@ -33,15 +33,9 @@ function fireChangePage(e) {
 </button>
 {/if}
 {#each [...pager.items()] as page}
-{#if pager.actual == page }
-  <button class="btn btn-active" data-page="{page}" on:click="{fireChangePage}">
+  <button class="btn {pager.actual === page ? 'btn-active': ''}" data-page="{page}" on:click="{fireChangePage}">
     {pager.normalize(page)}
   </button>
-{:else}
-  <button class="btn" data-page="{page}" on:click="{fireChangePage}">
-    {pager.normalize(page)}
-  </button>
-{/if}
 {/each}
 {#if pager.withControls}
 <button class="btn" data-page="{pager.next}" on:click="{fireChangePage}">
