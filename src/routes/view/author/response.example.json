@@ -1,0 +1,29 @@
+{
+  "data": {
+    "author": {
+      "id": "ea466df4-52ed-44af-a1b9-26f7914deb8c",
+      "name": "Levi Lemke"
+    },
+    "posts": {
+      "length": 3,
+      "pages": 3,
+      "rows": [
+        {
+          "id": "b79de7e1-15f9-4c7d-8e2e-ac18df4a9957",
+          "title": "id ducimus dolore aperiam",
+          "reactions": 3
+        },
+        {
+          "id": "5e76cc56-0e5c-4a35-b424-4af84926a288",
+          "title": "dignissimos quos libero sint",
+          "reactions": 2
+        },
+        {
+          "id": "5b476a35-6f6f-4c48-a919-cd2da938fa3b",
+          "title": "consequatur natus quis omnis",
+          "reactions": 4
+        }
+      ]
+    }
+  }
+}

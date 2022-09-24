@@ -10,6 +10,10 @@ module.exports = {
     extend: {},
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui']
+    },
+    minWidth: {
+      '7/12': '58.3%',
+      'full': '100%'
     }
   },
   plugins: [ daisyUI, typography ],
