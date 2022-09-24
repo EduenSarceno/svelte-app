@@ -4,7 +4,7 @@ import NavbarLink from './NavbarLink.svelte';
 
 const { links } = config.navbar;
 
-export let vertical;
+export let vertical = false;
 </script>
 
 <ul class="menu {vertical ? 'p-4 overflow-y-auto w-80 bg-base-100' : 'menu-horizontal'}">
