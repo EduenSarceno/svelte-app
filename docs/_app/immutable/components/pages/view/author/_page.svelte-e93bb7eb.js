@@ -1,0 +1,3 @@
+import{S as v,i as x,s as y,k as _,q as h,l as m,m as p,r as f,h as u,n as E,b as S,C as o,u as C,A as g}from"../../../../chunks/index-89a3db65.js";function q(i){let t,a,n,e=JSON.stringify(i[0],null,2)+"",l,d;return{c(){t=_("article"),a=_("pre"),n=h(""),l=h(e),d=h(`
+`),this.h()},l(s){t=m(s,"ARTICLE",{class:!0});var r=p(t);a=m(r,"PRE",{});var c=p(a);n=f(c,""),l=f(c,e),d=f(c,`
+`),c.forEach(u),r.forEach(u),this.h()},h(){E(t,"class","hero")},m(s,r){S(s,t,r),o(t,a),o(a,n),o(a,l),o(a,d)},p(s,[r]){r&1&&e!==(e=JSON.stringify(s[0],null,2)+"")&&C(l,e)},i:g,o:g,d(s){s&&u(t)}}}function A(i,t,a){let{data:n}=t;return i.$$set=e=>{"data"in e&&a(0,n=e.data)},[n]}class N extends v{constructor(t){super(),x(this,t,A,q,y,{data:0})}}export{N as default};
