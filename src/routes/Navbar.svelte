@@ -3,9 +3,11 @@ import config from '$lib/config.js';
 import NavbarLink from './NavbarLink.svelte';
 
 const { links } = config.navbar;
+
+export let vertical;
 </script>
 
-<ul tabindex="0" class="menu basis-full shadow bg-neutral text-neutral-content rounded-box p-2 w-52">
+<ul class="menu {vertical ? 'p-4 overflow-y-auto w-80 bg-base-100' : 'menu-horizontal'}">
   {#each links as link}
     <NavbarLink {...link} />
   {/each}

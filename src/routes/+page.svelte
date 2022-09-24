@@ -1,7 +1,7 @@
 <script>
 import { base } from '$app/paths';
 </script>
-<article class="hero">
+<article class="hero bg-200">
   <div class="hero-content text-center">
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">SvelteKit.js + Vite.js</h1>

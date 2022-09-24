@@ -14,19 +14,19 @@ $: author.color = authorColor(author)
 
 </script>
 
-<article tabinde="0" class="flex flex-row bg-base-300 text-base-content mx-4 mt-4 asis-full basis-11/12 rounded border border-neutral align-middle">
+<article tabinde="0" class="flex flex-row bg-base-300 text-base-content rounded border border-neutral align-middle mt-4">
 <div class="grow">
   <div class="avatar flex justify-center sm:float-left">
-    <div class="rounded rounded-full w-[5rem] m-6 text-center select-none border-2 border-neutral text-neutral-content" style="background-color:{author.color}">
+    <div class="rounded rounded-full w-[5rem] m-4 text-center select-none border-2 border-neutral text-neutral-content" style="background-color:{author.color}">
       <span class="text-3xl leading-[5rem]">{author.name.charAt(0)}</span>
     </div>
     </div>
-  <div class="flex flex-row flex-wrap sm:flex-row m-4 sm:m-0">
+  <div class="flex flex-row flex-wrap sm:flex-row mx-4">
     <a href="{base}/view/post/?id={id}" class="link link-hover basis-full sm:flex-auto">
     <h1 class="text-xl font-extrabold my-2">{title}</h1>
     </a>
     <div class="basis-full overflow-y-auto">{body}</div>
-    <div class="my-2 text-sm basis-full text-right inline-flex gap-2 justify-start">
+    <div class="my-2 text-sm basis-full text-right inline-flex gap-2 justify-between md:justify-start">
       <div class="tooltip" data-tip="Reactions">
       <span class="badge badge-neutral gap-2">
         <span class="fa-solid fa-thumbs-up text-neutral-content"></span>&nbsp;{reactions}

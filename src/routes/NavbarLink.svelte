@@ -11,9 +11,5 @@ $: active = $page.url.pathname === href;
 </script>
 
 <li>
-{#if active}
-  <a href="{href}" class="uppercase active">{name}</a>
-{:else}
-  <a href="{href}" class="uppercase">{name}</a>
-{/if}
+  <a href="{href}" class="uppercase {active ? 'active' : ''}">{name}</a>
 </li>

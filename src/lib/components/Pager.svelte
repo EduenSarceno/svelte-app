@@ -23,7 +23,7 @@ function fireChangePage(e) {
 }
 </script>
 
-<div class="btn-group my-4">
+<div class="btn-group my-4 mx-auto flex-wrap">
 {#if pager.withControls }
 <button class="btn" data-page="{pager.first}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angles-left"></span>
