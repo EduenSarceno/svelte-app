@@ -23,7 +23,7 @@ function fireChangePage(e) {
 }
 </script>
 
-<div class="btn-group">
+<div class="btn-group my-4">
 {#if pager.withControls }
 <button class="btn" data-page="{pager.first}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angles-left"></span>
@@ -34,9 +34,13 @@ function fireChangePage(e) {
 {/if}
 {#each [...pager.items()] as page}
 {#if pager.actual == page }
-  <button class="btn btn-active" data-page="{page}" on:click="{fireChangePage}">{page}</button>
+  <button class="btn btn-active" data-page="{page}" on:click="{fireChangePage}">
+    {pager.normalize(page)}
+  </button>
 {:else}
-  <button class="btn" data-page="{page}" on:click="{fireChangePage}">{page}</button>
+  <button class="btn" data-page="{page}" on:click="{fireChangePage}">
+    {pager.normalize(page)}
+  </button>
 {/if}
 {/each}
 {#if pager.withControls}

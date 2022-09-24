@@ -20,6 +20,6 @@ export default {
     }
   },
   paginator: {
-    seek: 2
+    size: 5
   }
 };
