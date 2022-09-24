@@ -32,9 +32,9 @@ $: author.color = authorColor(author)
         <span class="fa-solid fa-thumbs-up"></span>&nbsp;{reactions}
       </span>
       </div>
-      <span>
-       by:&nbsp;<a href="{base}/view/author/?id={id}" class="link"><em class="font-bold">{author.name}</em></a>
-      </span>
+      <p>
+       by:&nbsp;<a href="{base}/view/author/?id={id}" class="link"><span class="font-bold">{author.name}</span></a>
+      </p>
     </div>
 
   <div class="text-left my-2 text-bg-300 sm:text-right">
