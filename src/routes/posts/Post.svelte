@@ -1,5 +1,6 @@
 <script>
-import { safeBody, authorColor } from './functions.js'
+import Avatar from '$lib/components/Avatar.svelte';
+import { safeBody } from './functions.js'
 import { base } from '$app/paths';
 
 export let title;
@@ -9,23 +10,17 @@ export let id;
 export let categories;
 export let reactions;
 
-$: body = safeBody(body)
-$: author.color = authorColor(author)
-
 </script>
 
-<article tabinde="0" class="flex flex-row bg-base-300 text-base-content rounded border border-neutral align-middle mt-4">
-<div class="grow">
-  <div class="avatar flex justify-center sm:float-left">
-    <div class="rounded rounded-full w-[5rem] m-4 text-center select-none border-2 border-neutral text-neutral-content" style="background-color:{author.color}">
-      <span class="text-3xl leading-[5rem]">{author.name.charAt(0)}</span>
-    </div>
-    </div>
+<article tabindex="0" class="flex flex-row flex-wrap sm:flex-nowrap bg-base-300 text-base-content rounded border border-neutral align-middle mt-4">
+  <div class="flex items-center justify-center sm:float-left">
+    <Avatar name={author.name} />
+  </div>
   <div class="flex flex-row flex-wrap sm:flex-row mx-4">
     <a href="{base}/view/post/?id={id}" class="link link-hover basis-full sm:flex-auto">
     <h1 class="text-xl font-extrabold my-2">{title}</h1>
     </a>
-    <div class="basis-full overflow-y-auto">{body}</div>
+    <div class="basis-full overflow-y-auto">{safeBody(body)}</div>
     <div class="my-2 text-sm basis-full text-right inline-flex gap-2 justify-between md:justify-start">
       <div class="tooltip" data-tip="Reactions">
       <span class="badge badge-primary gap-2">
@@ -47,5 +42,4 @@ $: author.color = authorColor(author)
   </div>
 
   </div>
-</div>
 </article>

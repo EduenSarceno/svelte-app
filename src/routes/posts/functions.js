@@ -1,7 +1,6 @@
 import config from '$lib/config.js';
 
 const { maxLength } = config.posts.body;
-const { colors } = config.posts.author;
 
 export function safeBody(body) {
   if (body.length > maxLength) {
@@ -9,17 +8,4 @@ export function safeBody(body) {
     return body.substring(0, len) + '...';
   }
   return body;
-}
-
-export function authorColor(author) {
-  const str = author.name || 'Anonymous';
-  var hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    let char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32bit integer
-  }
-  let color = hash % colors.length;
-  if (color < 0) color = colors.length + color;
-  return colors[color];
 }
