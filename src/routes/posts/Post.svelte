@@ -7,6 +7,7 @@ export let body;
 export let author;
 export let id;
 export let categories;
+export let reactions;
 
 $: body = safeBody(body)
 $: author.color = authorColor(author)
@@ -25,21 +26,25 @@ $: author.color = authorColor(author)
     <h1 class="text-xl font-extrabold my-2">{title}</h1>
     </a>
     <div class="basis-full overflow-y">{body}</div>
-    <div class="my-2 text-sm basis-full text-center sm:text-left">
-      by <a href="{base}/view/author/?id={id}" class="link">
-        <em class="font-bold">{author.name}</em>
-      </a>
+    <div class="my-2 text-sm basis-full text-right inline-flex gap-2 justify-end md:justify-start">
+      <div class="tooltip" data-tip="Reactions">
+      <span class="badge badge-secondary gap-2">
+        <span class="fa-solid fa-thumbs-up"></span>&nbsp;{reactions}
+      </span>
+      </div>
+      <span>
+       by:&nbsp;<a href="{base}/view/author/?id={id}" class="link"><em class="font-bold">{author.name}</em></a>
+      </span>
     </div>
 
   <div class="text-left my-2 text-bg-300 sm:text-right">
     {#each categories as tag}
-    <btn class="badge badge-lg badge-outline badge-primary gap-2 mr-2">
+    <btn class="badge badge-lg badge-primary gap-2 mr-2">
       <span class="fa-solid fa-tag"></span>
       <a  href="{base}/posts/?cat={tag.id}" class="link link-hover text-base-content">{tag.name}</a>
     </btn>
     {/each}
   </div>
-
 
   </div>
 </div>
