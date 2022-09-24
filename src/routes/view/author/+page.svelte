@@ -11,10 +11,11 @@ const { posts} = data.data;
   <figure>
   <Avatar name="{author.name}" />
   </figure>
+  <h1 class="text-3xl text-center font-extrabold my-2">{author.name}</h1>
   <div class="card-body flex-col w-full place-items-center">
     <span class="badge badge-sm badge-neutral">{author.id}</span>
-    <div class="divider">POSTS</div>
-    <span class="text-md">{posts.length} posts in this blog</span>
+    <div class="divider text-sm">POSTS</div>
+    <span class="text-sm">{posts.length} posts in this blog</span>
     <ul class="bg-300 w-full">
     {#each posts.rows as post}
     <a class="text-md link link-hover" href="{base}/view/post/?id={post.id}">
