@@ -18,5 +18,8 @@ export default {
       '#09595C'
       ]
     }
+  },
+  paginator: {
+    seek: 2
   }
 };
