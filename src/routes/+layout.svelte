@@ -19,7 +19,7 @@ const { brand } = config;
         <Navbar />
       </div>
     </div>
-    <div class="flex flex-col flex-wrap grow mx-4 justify-center">
+    <div class="flex flex-row flex-wrap grow mx-4 justify-center">
       <!-- wrapper -->
       <slot />
     </div>

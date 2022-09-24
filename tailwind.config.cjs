@@ -1,4 +1,5 @@
 const daisyUI = require('daisyui')
+const typography = require('@tailwindcss/typography')
 const siteTheme = require('./site.theme.cjs')
 
 
@@ -11,7 +12,7 @@ module.exports = {
       'sans': ['ui-sans-serif', 'system-ui']
     }
   },
-  plugins: [ daisyUI ],
+  plugins: [ daisyUI, typography ],
   daisyui: {
     themes: [ siteTheme ]
   }

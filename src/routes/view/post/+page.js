@@ -1,5 +1,6 @@
 import { match as isUUID } from '$lib/uuid.js';
 import { error } from '@sveltejs/kit';
+import res from './response.example.json';
 
 export const ssr = false;
 
@@ -9,5 +10,5 @@ export function load({ url })
   if (!isUUID(id)) {
     throw error(404, 'not a post');
   }
-  return { id };
+  return res;
 }

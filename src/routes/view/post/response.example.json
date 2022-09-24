@@ -1,0 +1,28 @@
+{
+  "data": {
+    "post": {
+      "id": "fe7886a5-73c2-4e5a-89fc-6001c999073d",
+      "title": "dolore nihil ipsum explicabo",
+      "body": "Dolorem tempore quibusdam sit. Et quis libero possimus sit consectetur. Sint mollitia nisi eveniet eaque praesentium optio voluptatem.\nIste dolor rerum impedit eaque. Ex qui soluta autem maiores veniam eum consequatur. Voluptatem nemo et aliquid nesciunt aut quaerat aut quia. Molestiae minus asperiores nemo earum facilis aut exercitationem.\nDucimus explicabo magnam qui et repellat fugit. Vitae ullam earum ut impedit voluptatem enim corrupti architecto libero. Sed deserunt repellat qui quam laboriosam.\nEt quaerat in quis veniam accusantium. Beatae id voluptas commodi quasi harum quia et. A harum veritatis eum. Culpa voluptatem dolore quaerat. Quos error et cum et vel minima et nemo id. Dolore distinctio qui aperiam accusamus molestiae libero et eaque.",
+      "reactions": 2,
+      "author": {
+        "id": "3d25cc0c-8aa7-4ca9-a7ec-4265249b21d5",
+        "name": "Oscar Dibbert"
+      },
+      "categories": [
+        {
+          "id": "6c921977-8b93-4230-9ba3-28c9238911b9",
+          "name": "infuriate"
+        },
+        {
+          "id": "5a78052a-52ea-4891-b58a-6dc0e6923aec",
+          "name": "perm"
+        },
+        {
+          "id": "9d86d5c7-6a42-4a3c-b50f-8264a43936e9",
+          "name": "lather"
+        }
+      ]
+    }
+  }
+}
