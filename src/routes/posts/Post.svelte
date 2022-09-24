@@ -28,8 +28,8 @@ $: author.color = authorColor(author)
     <div class="basis-full overflow-y-auto">{body}</div>
     <div class="my-2 text-sm basis-full text-right inline-flex gap-2 justify-between md:justify-start">
       <div class="tooltip" data-tip="Reactions">
-      <span class="badge badge-neutral gap-2">
-        <span class="fa-solid fa-thumbs-up text-neutral-content"></span>&nbsp;{reactions}
+      <span class="badge badge-primary gap-2">
+        <span class="fa-solid fa-thumbs-up"></span>&nbsp;{reactions}
       </span>
       </div>
       <span>
@@ -39,9 +39,9 @@ $: author.color = authorColor(author)
 
   <div class="text-left my-2 text-bg-300 sm:text-right">
     {#each categories as tag}
-    <btn class="badge badge-lg badge-primary gap-2 mr-2">
+    <btn class="badge badge-lg badge-ghost gap-2 mr-2">
       <span class="fa-solid fa-tag"></span>
-      <a  href="{base}/posts/?cat={tag.id}" class="link link-hover text-base-content">{tag.name}</a>
+      <a href="{base}/posts/?cat={tag.id}" class="link link-hover">{tag.name}</a>
     </btn>
     {/each}
   </div>
