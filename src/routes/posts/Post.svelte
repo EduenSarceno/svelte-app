@@ -34,10 +34,10 @@ export let reactions;
 
   <div class="text-left my-2 text-bg-300 sm:text-right">
     {#each categories as tag}
-    <btn class="badge badge-lg badge-ghost gap-2 mr-2">
+    <span class="badge badge-lg badge-ghost gap-2 mr-2">
       <span class="fa-solid fa-tag"></span>
-      <a href="{base}/posts/?cat={tag.id}" class="link link-hover">{tag.name}</a>
-    </btn>
+      {tag.name}
+    </span>
     {/each}
   </div>
 

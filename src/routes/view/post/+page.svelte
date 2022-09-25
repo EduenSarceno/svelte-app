@@ -17,9 +17,7 @@ function paragraphs(body) {
 <div class="no-prose">
   <div class="flex flex-row gap-2">
   {#each post.categories as cat}
-    <button class="badge badge-neutral sm:badge-md md:badge-lg">
-      <a class="link link-hover" href="{base}/posts/?cat={cat.id}">{cat.name}</a>
-    </button>
+    <span class="badge badge-neutral badge-lg">{cat.name}</span>
   {/each}
   </div>
 </div>
