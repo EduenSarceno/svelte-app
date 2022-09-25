@@ -1,0 +1,14 @@
+query GetPosts($options: Options) {
+  posts(options: $options) {
+    length,
+    pages,
+    rows {
+      id,
+      title,
+      reactions,
+      body,
+      author {id, name},
+      categories {id, name}
+    }
+  }
+}

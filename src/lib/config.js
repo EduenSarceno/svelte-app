@@ -1,4 +1,5 @@
 export default {
+  API_BASE: 'https://blog-backend-blush.vercel.app/graphql',
   brand: 'EDUEN',
   navbar: {
     links: [
