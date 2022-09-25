@@ -19,10 +19,8 @@ const { brand } = config;
         <Navbar />
       </div>
     </div>
-    <div class="flex flex-row flex-wrap grow mx-4 justify-center">
-      <!-- wrapper -->
-      <slot />
-    </div>
+    <!-- slot -->
+    <slot />
   </div>
   <div class="drawer-side">
     <label for="my-drawer-3" class="drawer-overlay"></label>

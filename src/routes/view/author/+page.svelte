@@ -6,24 +6,24 @@ export let data;
 const { author } = data.data;
 const { posts} = data.data;
 </script>
-<article class="block my-8 min-w-full lg:min-w-7/12">
+<div class="flex flex-row flex-wrap justify-center w-full my-4">
+<article class="grow md:grow-0 md:w-10/12 lg:w-7/12 xl:w-5/12">
 <div class="card card-bordered card-normal bg-base-200">
   <figure>
   <Avatar name="{author.name}" />
   </figure>
   <h1 class="text-3xl text-center font-extrabold my-2">{author.name}</h1>
   <div class="card-body flex-col w-full place-items-center">
-    <span class="badge badge-sm badge-neutral">{author.id}</span>
     <div class="divider text-sm">POSTS</div>
     <span class="text-sm">{posts.length} posts in this blog</span>
     <ul class="bg-300 w-full">
-    {#each posts.rows as post}
-    <a class="text-md link link-hover" href="{base}/view/post/?id={post.id}">
-      <li>
-        <span class="fa-solid fa-comment-dots badge badge-primary"></span>
-        {post.title}
-      </li>
+    {#each posts.rows as post, i}
+    <li class="border-2 my-border rounded-md mt-1 bg-base-300">
+    <span class="badge badge-sm badge-primary mr-2">#{i}</span>
+    <a class="link link-hover" href="{base}/view/post/?id={post.id}">
+      {post.title}
     </a>
+    </li>
     {/each}
     </ul>
     {#if posts.pages > 1}
@@ -34,3 +34,10 @@ const { posts} = data.data;
   </div>
 </div>
 </article>
+</div>
+<style>
+.my-border {
+  border-color: hsl(var(--b3) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
+}
+</style>

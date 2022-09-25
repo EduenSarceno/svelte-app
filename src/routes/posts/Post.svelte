@@ -12,11 +12,11 @@ export let reactions;
 
 </script>
 
-<article tabindex="0" class="flex flex-row flex-wrap sm:flex-nowrap bg-base-300 text-base-content rounded border border-neutral align-middle mt-4">
+<article tabindex="0" class="bg-base-300 text-base-content rounded border border-neutral mt-4">
   <div class="flex items-center justify-center sm:float-left">
     <Avatar name={author.name} />
   </div>
-  <div class="flex flex-row flex-wrap sm:flex-row mx-4">
+  <div class="flex flex-col mx-4">
     <a href="{base}/view/post/?id={id}" class="link link-hover basis-full sm:flex-auto">
     <h1 class="text-xl font-extrabold my-2">{title}</h1>
     </a>

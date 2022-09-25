@@ -7,8 +7,8 @@ function paragraphs(body) {
   return body.split(/\n|\r|\r\n/g);
 }
 </script>
-
-<article class="prose md:prose-lg lg:prose-xl max-width my-8">
+<div class="flex flex-col">
+<article class="my-4 mx-4 prose self-center max-width md:prose-lg md:mx-0 md:my-8 lg:prose-xl">
 <h1>{post.title}</h1>
 {#each paragraphs(post.body) as paragraph }
   <p>{paragraph}</p>
@@ -25,3 +25,4 @@ function paragraphs(body) {
   Writted with <span class="fa-solid fa-heart"></span> by : <a href="{base}/view/author/?id={post.author.id}">{post.author.name}</a>
 </p>
 </article>
+</div>
