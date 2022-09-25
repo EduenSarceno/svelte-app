@@ -30,7 +30,7 @@ function init(res) {
     pages: _posts.pages,
     page: _posts.page
   };
-  hasData = _posts.length > 0
+  hasData = posts.length > 0
 }
 
 function changePage(e) {
@@ -58,8 +58,7 @@ function changePage(e) {
   <div class="alert alert-info shadow-lg my-8">
     <h3 class="text-xl">Sin resultados...</h3>
   </div>
-  <a class="btn btn-secondary" href="{base}/posts/">Volver</a>
-
+  <a class="btn btn-primary" href="{base}/posts/">Volver</a>
 </article>
 {/if}
 </section>
