@@ -1,47 +1,91 @@
 <script>
-import { Paginator } from './paginator.js';
 import { createEventDispatcher } from 'svelte';
+import config from '$lib/config.js';
 
-export let res;
+let { size } = config.paginator;
+if (size % 2 == 0) {
+  size++; // must be odd
+}
+
+export let length;
+export let pages;
 export let page = 1;
 
+$: prev = Math.max(1, page - 1);
+$: next = Math.min(pages, page + 1);
+$: needControls = pages > size;
+
+let digits;
+$: {
+  let __digits = 0;
+  for (let rest = pages; rest > 0; rest = ~~(rest / 10)) {
+    __digits++;
+  }
+  digits = __digits;
+}
+
+let items;
+$: items = genItems(page, pages);
+function genItems(page, pages) {
+  const seek = (size - 1) >>> 1;
+  let min = Math.max(1, page - seek);
+  let max = Math.min(pages, page + seek);
+
+  let diff
+  if ((diff = max - page) < seek) {
+    // We are at the end of the pager, there's no more items at the end
+    min -=  seek - diff
+    if (min < 1) { min = 1 }
+  } else if ((diff = page - min) < seek) {
+    // We are at the start of the pager, there's no more items at the end
+    max +=  seek - diff
+    if (max > pages) { max = pages }
+  }
+
+  let __items = [];
+  for (var i = min; i <= max; i++) {
+    __items.push(i);
+  }
+  return __items;
+}
+
+function txt(p) {
+  let s = p.toString();
+  return s.padStart(digits, '0');
+}
+
 const dispatch = createEventDispatcher();
-
-$: pager = new Paginator(res, 'posts');
-$: pager.actual = page;
-
 function fireChangePage(e) {
+  e.preventDefault();
   const btn = e.target.closest('.btn');
   const id = +btn.dataset.page;
-
-  e.preventDefault();
-  if (pager.actual === id) {
+  if (page === id) {
     return;
   }
-  pager.actual = id;
-  dispatch('changePage', pager.actual);
+  page = id;
+  dispatch('changePage', page);
 }
 </script>
 
-<div class="btn-group my-4 mx-auto flex-wrap">
-{#if pager.withControls }
-<button class="btn" data-page="{pager.first}" on:click="{fireChangePage}">
+<div class="btn-group my-4 mx-auto">
+{#if needControls}
+<button class="btn" data-page="1" on:click="{fireChangePage}">
   <span class="fa-solid fa-angles-left"></span>
 </button>
-<button class="btn" data-page="{pager.prev}" on:click="{fireChangePage}">
+<button class="btn" data-page="{prev}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angle-left"></span>
 </button>
 {/if}
-{#each [...pager.items()] as page}
-  <button class="btn {pager.actual === page ? 'btn-active': ''}" data-page="{page}" on:click="{fireChangePage}">
-    {pager.normalize(page)}
+{#each items as item (item)}
+  <button class="btn {item === page ? 'btn-active': ''}" data-page="{item}" on:click="{fireChangePage}">
+    {txt(item)}
   </button>
 {/each}
-{#if pager.withControls}
-<button class="btn" data-page="{pager.next}" on:click="{fireChangePage}">
+{#if needControls}
+<button class="btn" data-page="{next}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angle-right"></span>
 </button>
-<button class="btn" data-page="{pager.last}" on:click="{fireChangePage}">
+<button class="btn" data-page="{pages}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angles-right"></span>
 </button>
 {/if}
