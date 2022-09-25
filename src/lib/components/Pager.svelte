@@ -71,7 +71,7 @@ function fireChangePage(e) {
 <button class="btn" data-page="1" on:click="{fireChangePage}">
   <span class="fa-solid fa-angles-left"></span>
 </button>
-<button class="btn" data-page="{prev}" on:click="{fireChangePage}">
+<button class="btn hidden sm:inline-flex" data-page="{prev}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angle-left"></span>
 </button>
 {/if}
@@ -81,7 +81,7 @@ function fireChangePage(e) {
   </button>
 {/each}
 {#if needControls}
-<button class="btn" data-page="{next}" on:click="{fireChangePage}">
+<button class="btn hidden sm:inline-flex" data-page="{next}" on:click="{fireChangePage}">
   <span class="fa-solid fa-angle-right"></span>
 </button>
 <button class="btn" data-page="{pages}" on:click="{fireChangePage}">
