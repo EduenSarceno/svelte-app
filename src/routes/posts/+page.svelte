@@ -3,28 +3,34 @@ import { base } from '$app/paths';
 import { goto } from '$app/navigation';
 import Pager from '$lib/components/Pager.svelte';
 import Post from './Post.svelte';
+import Errors from '$lib/components/Errors.svelte';
 
 export let data;
 
 let posts = [];
 let pager = {};
 let hasData = false;
+let errors;
 
-$: init(data.data);
+$: init(data);
 
 function init(res) {
+  hasData = false
   if (!res) {
-    hasData = false;
+    return;
+  } else if (res.errors) {
+    errors = res.errors;
     return
   }
-  const { posts: postPage } = res;
-  posts = postPage.rows;
+  res = res.data
+  const { posts: _posts } = res;
+  posts = _posts.rows;
   pager = {
-    length: postPage.length,
-    pages: postPage.pages,
-    page: postPage.page
+    length: _posts.length,
+    pages: _posts.pages,
+    page: _posts.page
   };
-  hasData = postPage.length > 0
+  hasData = _posts.length > 0
 }
 
 function changePage(e) {
@@ -37,6 +43,7 @@ function changePage(e) {
 }
 
 </script>
+<Errors {errors} />
 <div class="flex flex-row flex-wrap my-4 mx-2 justify-center">
 <section class="grow md:grow-0 md:w-9/12">
 {#if hasData }

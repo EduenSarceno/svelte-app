@@ -28,7 +28,7 @@ export let reactions;
       </span>
       </div>
       <p>
-       by:&nbsp;<a href="{base}/view/author/?id={id}" class="link"><span class="font-bold">{author.name}</span></a>
+       by:&nbsp;<a href="{base}/view/author/?id={author.id}" class="link"><span class="font-bold">{author.name}</span></a>
       </p>
     </div>
 

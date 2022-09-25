@@ -1,11 +1,29 @@
 <script>
 import Avatar from '$lib/components/Avatar.svelte';
+import Errors from '$lib/components/Errors.svelte';
 import { base } from '$app/paths';
 export let data;
 
-const { author } = data.data;
-const { posts} = data.data;
+let author;
+let posts;
+let errors;
+
+$: init(data);
+
+function init(res) {
+  if (!res) {
+    return;
+  } else if (res.errors) {
+    errors = res.errors;
+    return;
+  }
+  res = res.data;
+  author = res.author;
+  posts = res.posts;
+}
 </script>
+<Errors {errors} />
+{#if !!author}
 <div class="flex flex-row flex-wrap justify-center w-full my-4">
 <article class="grow md:grow-0 md:w-10/12 lg:w-7/12 xl:w-5/12">
 <div class="card card-bordered card-normal bg-base-200">
@@ -26,7 +44,7 @@ const { posts} = data.data;
     </li>
     {/each}
     </ul>
-    {#if posts.pages > 1}
+    {#if posts.length > 0}
     <div class="mt-2">
       <a class="btn btn-primary" href="{base}/posts/?author={author.id}">See more</a>
     </div>
@@ -35,6 +53,7 @@ const { posts} = data.data;
 </div>
 </article>
 </div>
+{/if}
 <style>
 .my-border {
   border-color: hsl(var(--b3) / var(--tw-bg-opacity));

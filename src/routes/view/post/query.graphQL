@@ -1,0 +1,11 @@
+query GetPost($id: UUID!)
+{
+  post(id:$id) {
+    id, 
+    title, 
+    body, 
+    reactions, 
+    author { id, name },
+    categories {id, name}
+  }
+}

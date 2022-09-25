@@ -7,7 +7,6 @@ if (size % 2 == 0) {
   size++; // must be odd
 }
 
-export let length;
 export let pages;
 export let page = 1;
 
@@ -17,11 +16,11 @@ $: needControls = pages > size;
 
 let digits;
 $: {
-  let __digits = 0;
+  let _digits = 0;
   for (let rest = pages; rest > 0; rest = ~~(rest / 10)) {
-    __digits++;
+    _digits++;
   }
-  digits = __digits;
+  digits = _digits;
 }
 
 let items;
@@ -42,11 +41,11 @@ function genItems(page, pages) {
     if (max > pages) { max = pages }
   }
 
-  let __items = [];
+  let _items = [];
   for (var i = min; i <= max; i++) {
-    __items.push(i);
+    _items.push(i);
   }
-  return __items;
+  return _items;
 }
 
 function txt(p) {

@@ -1,5 +1,6 @@
 export const ssr = false;
 import { match as isUUID } from '$lib/uuid.js';
+import * as api from '$lib/api.js';
 import { error, redirect } from '@sveltejs/kit';
 import query from './query.graphQL?raw';
 import config from '$lib/config.js';
@@ -64,37 +65,15 @@ export async function load({ url }) {
   options.order = [['id', old ? 'ASC' : 'DESC']];
   options.page = page;
 
-  const graphQL = {
+  let data = await api.fetch({
     query,
     variables: { options },
     operationName: 'GetPosts'
-  };
-
-  const { API_BASE } = config;
-  const req = fetch( API_BASE, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(graphQL)
   });
-
-  const data = (async function getDataFromServer() {
-      let res = await req;
-      if (res.status !== 200) {
-        throw error(503, 'API no disponible');
-      }
-      res = await res.json();
-      let { errors, data } = res;
-      if (errors && errors.length > 0) {
-        let error = errors.pop()
-        throw error(503, error.message);
-      }
-      // Wee need this for the paginator;
-      data.posts.page = page;
-      return res;
-  }())
-
+  populatePage(data.data, page);
   return data;
+}
+
+function populatePage(data, page) {
+  data.posts.page = page
 }

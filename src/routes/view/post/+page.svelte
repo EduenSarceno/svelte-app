@@ -1,16 +1,34 @@
 <script>
 import {base} from '$app/paths';
-export let data;
-$: post = data.data.post;
+import Errors from '$lib/components/Errors.svelte';
 
-function paragraphs(body) {
-  return body.split(/\n|\r|\r\n/g);
+export let data;
+
+let content;
+let post;
+let errors;
+
+$: init(data.data);
+
+function init(res) {
+  if (!res) {
+    return
+  } else if (res.errors) {
+    errors = res.errors;
+    return
+  }
+  post = res.post;
+  content = post.body.split(/\n|\r|\r\n/g);
+  console.log(content);
 }
 </script>
+
+<Errors {errors}/>
+{#if !!post }
 <div class="flex flex-col">
 <article class="my-4 mx-4 prose self-center max-width md:prose-lg md:mx-0 md:my-8 lg:prose-xl">
 <h1>{post.title}</h1>
-{#each paragraphs(post.body) as paragraph }
+{#each content as paragraph }
   <p>{paragraph}</p>
 {/each}
 
@@ -26,3 +44,4 @@ function paragraphs(body) {
 </p>
 </article>
 </div>
+{/if}

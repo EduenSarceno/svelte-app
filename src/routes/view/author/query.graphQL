@@ -1,0 +1,19 @@
+query GetAuthor($id: UUID!)
+{
+  author(id:$id) {
+    id, name
+  },
+  posts(options: {
+    where: {
+      authorId: $id
+    },
+    limit: 5
+  }){
+    pages,
+    length,
+    rows {
+      id,
+      title
+    }
+  }
+}
