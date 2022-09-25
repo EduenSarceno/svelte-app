@@ -26,6 +26,5 @@ function apiFetch(graphQL) {
     }
     return res.json();
   }());
-  data.then(console.log)
   return data;
 }

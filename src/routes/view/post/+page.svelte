@@ -19,7 +19,6 @@ function init(res) {
   }
   post = res.post;
   content = post.body.split(/\n|\r|\r\n/g);
-  console.log(content);
 }
 </script>
 
