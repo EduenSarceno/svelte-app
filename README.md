@@ -1,25 +1,19 @@
-Propuesta de desarrollo de Frontend
+Propuesta de desarrollo de Frontend: BLOG en Svelte
 =========
-Bueno, este código fue realizado para una oferta laboral como
-desarollador JR. No obstante no me dio tiempo de terminarla.
-
-Si bien pude haber entregado algo funcional, preferí alinearme a los requisitos
-y aprender las herramientas mencionadas. Aprender varios frameworks en menos
-de 72horas es una mala idea.
-
-Bue, sin más que agregar, mas que aprendí mucho y me divertí. Espero les sirva
-a alguien más.
+Este código fue realizado para una oferta laboral como
+desarollador Jr. en Pentcloud Guatemala.
 
 Visualización del sitio en línea
 ==================================
 Debido a que utilicé el adaptador estático de SvelteKit es posible visualizar el sitio
-incluso sin un servidor.
+en un servidor estático como GithubPages
 
   https://eduensarceno.github.io/svelte-app/
 
 
-Ejecución de la aplicación
+Desarrollo
 =============
+Para modificar el código basta:
 
 -  Clonar el repositorio:
 
@@ -32,22 +26,16 @@ Ejecución de la aplicación
 ```
     >npm install
 ```
+- Hacer cambios
 
-- Correr la aplicación localmente
+- Probar los cambios localmente
 
 ```cmd
-    >npm run dev -- --port 8080 --host 0.0.0.0 --open
+    >npm run dev -- --port 8080 --host --open
 ```
 
 Componentes
 ==============
-En docks/mockups está una idea general de qué iba la app.
-era una aplicación de una sola página (SAP) que consumía una REST api
-de vercel con graphQL, lastimosamente no me dio tiempo terminarla.
-
-La estructura del repo es bien simple, una vez aprendes el flujo de SvelveKit
-la vida se te facilita, mientras tanto es un dolor de cabeza, mejor dicho
-una pesadilla...
-
-En fin, gracias Juan por esta oportunidad brindada, si ves el repo
-solo queda decirte que seguiré trabajando en la app a modo de práctica, mil gracias.
+Bueno realmente partí de una metodología top-down, en lugar de down-top
+así que los únicos componentes que fueron pensados para serlo están
+en la carpeta /src/lib/components.
