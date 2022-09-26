@@ -13,7 +13,7 @@ export const ORDER = {
 };
 
 export { apiFetch as fetch };
-function apiFetch(graphQL) {
+function apiFetch(graphQL, fetch) {
   const { API_BASE } = config;
   const req = fetch(API_BASE, {
     method: 'POST',

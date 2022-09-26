@@ -17,7 +17,7 @@ const {
   ORDER
 } = api;
 
-export async function load({ url }) {
+export async function load({ url, fetch }) {
   const { author, old, page, group, order} = normalizeOrRedirectURL(url);
 
   const options = Object.create(null);
@@ -45,7 +45,7 @@ export async function load({ url }) {
     req.operationName = 'GetGroupedPosts'
   }
 
-  let data = await api.fetch(req);
+  let data = await api.fetch(req, fetch);
   if (group) {
     // First we need to map and sort the data before passing the data to the
     // svelte component (or we are fuck)
@@ -163,9 +163,7 @@ function applyGroupLogic(response, group, order) {
       groups[group] = {name: group, rows: [row]}
     }
   }
-  console.log(Object.values(groups));
   data.groups = Object.values(groups).sort(sortByName);
-  console.log(data.groups)
 }
 
 function inEnum(obj, value) {

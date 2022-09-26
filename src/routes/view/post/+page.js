@@ -4,7 +4,7 @@ import query from './query.graphQL?raw';
 
 export const ssr = false;
 
-export function load({ url })
+export function load({ url, fetch })
 {
   const id = url.searchParams.get('id');
   if (!isUUID(id)) {
@@ -19,6 +19,6 @@ export function load({ url })
     query,
     variables: { id },
     operationName: 'GetPost'
-  });
+  }, fetch);
   return ret;
 }
