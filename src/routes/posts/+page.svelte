@@ -21,6 +21,7 @@ let pager;
 let options;
 let posts;
 let groups;
+let topElement;
 
 function init() {
   data = res.data;
@@ -61,9 +62,10 @@ function changeParamAndGo(param, value) {
   let url = makeURL(function(query){
     query.set(param, value);
   });
-  goto(url, {
-    noScroll: false
-  });
+  goto(url, { noScroll: false });
+  // Well, I don't know why svelte doesn't scroll to top,
+  // so...
+  topElement.scrollIntoView();
 }
 
 function makeURL(cb) {
@@ -74,10 +76,7 @@ function makeURL(cb) {
 }
 
 </script>
-<div>
-<pre>
-</pre>
-</div>
+<div id="#top" bind:this={topElement}></div>
 <!--Errors {errors} / -->
 <div class="flex flex-row flex-wrap my-4 mx-2 justify-center">
 <section class="grow md:grow-0 md:w-9/12">

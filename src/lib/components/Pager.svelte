@@ -55,7 +55,6 @@ function txt(p) {
 
 const fire = createEventDispatcher();
 function fireOnChange(e) {
-  e.preventDefault();
   const btn = e.target.closest('.btn');
   const id = +btn.dataset.page;
   if (page === id) {
