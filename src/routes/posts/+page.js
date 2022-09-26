@@ -52,6 +52,7 @@ export async function load({ url, fetch }) {
     applyGroupLogic(data, group, order);
   }
   Object.assign(data, {page, old, order, group});
+  console.log(data);
   return data;
 }
 

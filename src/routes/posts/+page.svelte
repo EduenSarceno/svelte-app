@@ -22,6 +22,7 @@ let options;
 let posts;
 let groups;
 let topElement;
+let errors;
 
 function init() {
   data = res.data;
@@ -39,6 +40,9 @@ function init() {
   }
   if (data && posts) {
     pager.pages = posts.pages;
+  }
+  if (data && data.errors) {
+    errors = data.errors;
   }
 }
 
@@ -77,12 +81,14 @@ function makeURL(cb) {
 
 </script>
 <div id="#top" bind:this={topElement}></div>
-<!--Errors {errors} / -->
+  <Errors {errors} />
 <div class="flex flex-row flex-wrap my-4 mx-2 justify-center">
 <section class="grow md:grow-0 md:w-9/12">
+{#if posts && posts.length > 0}
   <div class="block text-right">
     <Options {...options} on:order={onOrder} on:group={onGroup} on:old={onOld} />
   </div>
+{/if}
 {#if posts && !groups}
 {#each posts.rows as post}
   <Post {...post} />
@@ -91,7 +97,7 @@ function makeURL(cb) {
 {#if groups}
 <Group {groups}/>
 {/if}
-{#if posts || groups}
+{#if posts && posts.length > 0}
   <div class="block text-center">
     <Pager {...pager} on:change="{changePage}" />
   </div>
