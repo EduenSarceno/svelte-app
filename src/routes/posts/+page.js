@@ -121,7 +121,7 @@ function normalizeOrRedirectURL(url) {
 }
 
 function applyGroupLogic(response, group, order) {
-  const sortByName = (a, b) => !!order ? (b.name < a.name) : (b.name > a.namme);
+  const sortByName = (a, b) => order ? a.name > b.name : b.name > a.name
   let rows, data = response.data;
   if (data && group == GROUP.CATEGORY) {
     let posts = data.posts;
@@ -163,7 +163,9 @@ function applyGroupLogic(response, group, order) {
       groups[group] = {name: group, rows: [row]}
     }
   }
+  console.log(Object.values(groups));
   data.groups = Object.values(groups).sort(sortByName);
+  console.log(data.groups)
 }
 
 function inEnum(obj, value) {
