@@ -1,0 +1,13 @@
+query GetGroupedPosts($options: Options) {
+  posts(options: $options) {
+    length,
+    pages,
+    rows {
+      id,
+      title,
+      reactions,
+      author {id, name},
+      categories {id, name}
+    }
+  }
+}

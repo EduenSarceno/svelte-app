@@ -1,5 +1,11 @@
 export default {
   API_BASE: 'https://blog-backend-blush.vercel.app/graphql',
+  api: {
+    limits: {
+      posts: 10,
+      group: 10
+    }
+  },
   brand: 'EDUEN',
   navbar: {
     links: [

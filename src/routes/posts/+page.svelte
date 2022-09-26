@@ -1,57 +1,100 @@
 <script>
 import { base } from '$app/paths';
 import { goto } from '$app/navigation';
+import { page } from '$app/stores';
+import { GROUP, ORDER } from '$lib/api.js';
 import Pager from '$lib/components/Pager.svelte';
-import Post from './Post.svelte';
 import Errors from '$lib/components/Errors.svelte';
+import Options from './Options.svelte';
+import Post from './Post.svelte';
+import Group from './Group.svelte';
 
-export let data;
+let url;
+$: url = $page.url;
 
-let posts = [];
-let pager = {};
-let hasData = false;
-let errors;
+let res;
+export { res as data };
+$: init(res);
 
-$: init(data);
+let data;
+let pager;
+let options;
+let posts;
+let groups;
 
-function init(res) {
-  hasData = false
-  if (!res) {
-    return;
-  } else if (res.errors) {
-    errors = res.errors;
-    return
-  }
-  res = res.data
-  const { posts: _posts } = res;
-  posts = _posts.rows;
-  pager = {
-    length: _posts.length,
-    pages: _posts.pages,
-    page: _posts.page
+function init() {
+  data = res.data;
+  options = {
+    group: res.group,
+    order: res.order,
   };
-  hasData = posts.length > 0
+  pager = {
+    page: res.page,
+    pages: 1
+  };
+  if (data) {
+    posts = data.posts;
+    groups = data.groups;
+  }
+  if (data && posts) {
+    pager.pages = posts.pages;
+  }
 }
 
 function changePage(e) {
-  e.preventDefault()
-  const page = e.detail;
-  const url = new URL(location.href);
-  const params = url.searchParams;
-  params.set('page', page);
-  goto(url);
+  changeParamAndGo('page', e.detail);
+}
+
+function onOrder(e) {
+  changeParamAndGo('order', e.detail);
+}
+
+function onGroup(e) {
+  changeParamAndGo('group', e.detail);
+}
+
+function onOld(e) {
+  changeParamAndGo('old', e.detail);
+}
+
+function changeParamAndGo(param, value) {
+  let url = makeURL(function(query){
+    query.set(param, value);
+  });
+  goto(url, {
+    noScroll: false
+  });
+}
+
+function makeURL(cb) {
+  let $url = new URL(url);
+  let params = $url.searchParams;
+  cb(params);
+  return $url;
 }
 
 </script>
-<Errors {errors} />
+<div>
+<pre>
+</pre>
+</div>
+<!--Errors {errors} / -->
 <div class="flex flex-row flex-wrap my-4 mx-2 justify-center">
 <section class="grow md:grow-0 md:w-9/12">
-{#if hasData }
-{#each posts as post}
+  <div class="block text-right">
+    <Options {...options} on:order={onOrder} on:group={onGroup} on:old={onOld} />
+  </div>
+{#if posts && !groups}
+{#each posts.rows as post}
   <Post {...post} />
- {/each}
+{/each}
+{/if}
+{#if groups}
+<Group {groups}/>
+{/if}
+{#if posts || groups}
   <div class="block text-center">
-    <Pager {...pager} on:changePage="{changePage}"/>
+    <Pager {...pager} on:change="{changePage}" />
   </div>
 {:else}
 <article class="p-4">

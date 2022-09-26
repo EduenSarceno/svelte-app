@@ -1,11 +1,20 @@
 import config from './config.js';
 import { error } from '@sveltejs/kit';
 
-const { API_BASE } = config;
+export const GROUP = {
+  NONE: 0,
+  AUTHOR: 1,
+  CATEGORY: 2
+};
+
+export const ORDER = {
+  ASC: 0,
+  DESC: 1
+};
 
 export { apiFetch as fetch };
-
 function apiFetch(graphQL) {
+  const { API_BASE } = config;
   const req = fetch(API_BASE, {
     method: 'POST',
     mode: 'cors',

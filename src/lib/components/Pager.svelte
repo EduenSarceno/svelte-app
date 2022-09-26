@@ -53,8 +53,8 @@ function txt(p) {
   return s.padStart(digits, '0');
 }
 
-const dispatch = createEventDispatcher();
-function fireChangePage(e) {
+const fire = createEventDispatcher();
+function fireOnChange(e) {
   e.preventDefault();
   const btn = e.target.closest('.btn');
   const id = +btn.dataset.page;
@@ -62,29 +62,29 @@ function fireChangePage(e) {
     return;
   }
   page = id;
-  dispatch('changePage', page);
+  fire('change', page);
 }
 </script>
 
 <div class="btn-group my-4 mx-auto">
 {#if needControls}
-<button class="btn" data-page="1" on:click="{fireChangePage}">
+<button class="btn" data-page="1" on:click="{fireOnChange}">
   <span class="fa-solid fa-angles-left"></span>
 </button>
-<button class="btn hidden sm:inline-flex" data-page="{prev}" on:click="{fireChangePage}">
+<button class="btn hidden sm:inline-flex" data-page="{prev}" on:click="{fireOnChange}">
   <span class="fa-solid fa-angle-left"></span>
 </button>
 {/if}
 {#each items as item (item)}
-  <button class="btn {item === page ? 'btn-active': ''}" data-page="{item}" on:click="{fireChangePage}">
+  <button class="btn {item === page ? 'btn-active': ''}" data-page="{item}" on:click="{fireOnChange}">
     {txt(item)}
   </button>
 {/each}
 {#if needControls}
-<button class="btn hidden sm:inline-flex" data-page="{next}" on:click="{fireChangePage}">
+<button class="btn hidden sm:inline-flex" data-page="{next}" on:click="{fireOnChange}">
   <span class="fa-solid fa-angle-right"></span>
 </button>
-<button class="btn" data-page="{pages}" on:click="{fireChangePage}">
+<button class="btn" data-page="{pages}" on:click="{fireOnChange}">
   <span class="fa-solid fa-angles-right"></span>
 </button>
 {/if}

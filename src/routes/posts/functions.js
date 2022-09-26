@@ -1,4 +1,5 @@
 import config from '$lib/config.js';
+import { goto } from '$app/navigation';
 
 const { maxLength } = config.posts.body;
 
