@@ -37,7 +37,7 @@ function init(res) {
     <ul class="bg-300 w-full">
     {#each posts.rows as post, i}
     <li class="border-2 my-border rounded-md mt-1 bg-base-300">
-    <span class="badge badge-sm badge-primary mr-2">#{i}</span>
+    <span class="badge badge-sm badge-primary mr-2">#{i + 1}</span>
     <a class="link link-hover" href="{base}/view/post/?id={post.id}">
       {post.title}
     </a>
